@@ -1,0 +1,47 @@
+{
+  "name": "stonks-backend",
+  "version": "1.0.0",
+  "description": "Backend for stonks app",
+  "main": "dist/server.js",
+  "scripts": {
+    "start": "node -r dotenv/config --inspect=9229 -r ts-node/register ./src/server.ts dotenv_config_path=.env",
+    "nodemon": "nodemon",
+    "build": "tsc",
+    "test": "jest --collectCoverage",
+    "test-brk": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand"
+  },
+  "author": "Juha Kamula",
+  "license": "ISC",
+  "dependencies": {
+    "@stoqey/finnhub": "^0.3.4",
+    "axios": "^0.23.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "moment": "^2.29.1",
+    "nocache": "^3.0.1",
+    "path": "^0.12.7",
+    "socket.io": "^4.3.0",
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.5.5"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jest": "^25.2.1",
+    "jest": "^27.2.5",
+    "nodemon": "2.0.7",
+    "socket.io-mock": "^1.3.2",
+    "ts-jest": "^27.0.7",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  }
+}
