@@ -13,7 +13,6 @@
   "author": "Juha Kamula",
   "license": "ISC",
   "dependencies": {
-    "@stoqey/finnhub": "^0.3.4",
     "axios": "^0.23.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
