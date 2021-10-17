@@ -1,3 +1,5 @@
+Create frontend/.env and backend/.env from .env-templates
+
 This app requires API access to https://rapidapi.com/principalapis/api/stock-data-yahoo-finance-alternative/
 Register and add X_RAPIDAPI_KEY to backend/.env
 
