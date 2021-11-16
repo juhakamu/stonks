@@ -1,13 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { StockType } from '../../../backend/src/services/stockCache';
 
-export type StockItemType = {
-  name: string,
-  ask: number | undefined,
-  prevAsk: number | undefined,
-  bid: number | undefined,
-}
-
-export type StockList = StockItemType[];
+export type StockList = StockType[];
 
 export type StocksStateType = {
   stocks: StockList

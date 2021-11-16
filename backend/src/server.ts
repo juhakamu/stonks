@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
-import bodyParser from 'body-parser';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
 import { addUser, removeUser } from './handlers/userHandler';
@@ -17,8 +16,8 @@ const isDevelopmentEnv = process.env.NODE_ENV === 'development';
 logger.info(`NODE_ENV: ${process.env.NODE_ENV}`);
 
 const corsOptions = {
-  origin: isDevelopmentEnv ? true : process.env.APP_URI, // for dev: Access-Control-Allow-Origin from req.header('Origin')
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  origin: isDevelopmentEnv ? true : process.env.APP_URI,
+  optionsSuccessStatus: 200,
   maxAge: 600,
   allowedHeaders: 'Content-Type,Authorization,x-requested-with'
 };
@@ -28,8 +27,8 @@ app.use(helmet.dnsPrefetchControl());
 app.use(helmet.hidePoweredBy());
 app.use(helmet.frameguard({ action: 'sameorigin' }));
 app.use(helmet.xssFilter());
-app.use(bodyParser.json({ limit: '25mb' }));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json({ limit: '25mb' }));
+app.use(express.urlencoded({ extended: true }));
 
 const httpServer = createServer(app);
 const io = new Server(httpServer, {

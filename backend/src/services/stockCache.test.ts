@@ -1,7 +1,7 @@
 import * as cache from './stockCache';
 
 test('StockCache caches stocks with timestamp', () => {
-  const item: cache.CacheItem = {
+  const item: cache.StockType = {
     name: 'NOKIA',
     ask: 123.00,
     bid: 122.00,
@@ -19,7 +19,7 @@ test('StockCache caches stocks with timestamp', () => {
 });
 
 test('StockCache updates prevAsk for items', () => {
-  const item: cache.CacheItem = {
+  const item: cache.StockType = {
     name: 'NOKIA',
     ask: 123.00,
     bid: 122.00,

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CacheItem } from './stockCache';
+import { StockType } from './stockCache';
 
 const logger = require('../util/logger')(module);
 
@@ -18,7 +18,7 @@ type QuoteResponse = {
 
 export const getStockInfo = async (stockList: Array<string>) => {
   logger.info(`getStockInfo: ${stockList.join(',')}`);
-  const stocks: Array<CacheItem> = [];
+  const stocks: Array<StockType> = [];
   const config = {
     params: { symbols: stockList.join(',') },
     headers: {
@@ -30,7 +30,7 @@ export const getStockInfo = async (stockList: Array<string>) => {
     const response = await axios.get<QuoteResponse>(url, config);
     logger.debug(JSON.stringify(response.data));
     response.data.quoteResponse.result.forEach(result => {
-      const item: CacheItem = {
+      const item: StockType = {
         name: result.symbol,
         bid: result.bid,
         ask: result.ask,

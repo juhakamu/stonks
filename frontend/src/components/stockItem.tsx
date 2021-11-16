@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronCircleDown, faChevronCircleUp, faMinus, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import { StockItemType } from '../store/stocksSlice';
+import { StockType } from '../../../backend/src/services/stockCache';
 import { removeStock } from '../api/api';
 
 type StockItemProps = {
-  stock: StockItemType
+  stock: StockType
 }
 
 const StockItem = ({ stock }: StockItemProps) => {

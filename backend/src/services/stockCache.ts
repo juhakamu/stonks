@@ -1,13 +1,13 @@
-export type CacheItem = {
+export type StockType = {
   name: string,
   ask: number | undefined,
   prevAsk: number | undefined,
   bid: number | undefined
 }
 
-const cache = new Map<string, [CacheItem, number]>();
+const cache = new Map<string, [StockType, number]>();
 
-export const set = (item: CacheItem) => {
+export const set = (item: StockType) => {
   const prevItem = cache.get(item.name);
   if (prevItem) {
     const stock = prevItem[0];

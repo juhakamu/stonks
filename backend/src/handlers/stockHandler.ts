@@ -43,7 +43,7 @@ export const removeStock = async (socket: Socket, stockId: string) => {
 };
 
 const updateStockForUser = (user: User) => {
-  const update: stockCache.CacheItem[] = [];
+  const update: stockCache.StockType[] = [];
   user.stocks.forEach(stock => {
     const stockItem = stockCache.get(stock);
     if (stockItem) {
@@ -56,14 +56,11 @@ const updateStockForUser = (user: User) => {
 const updateStocks = async () => {
   logger.info('updateStocks');
   const users = getUsers();
-  const stocks = new Set<string>();
+  const stocks: string[] = [];
   users.forEach(user => {
-    user.stocks.forEach(stock => {
-      stocks.add(stock);
-    });
+    stocks.push(...user.stocks);
   });
-
-  const stockArray = Array.from(stocks.values());
+  const stockArray = Array.from(new Set(stocks));
   logger.info(`Stocks that require updating: ${stockArray}`);
   while (stockArray.length > 0) {
     const spliced = stockArray.splice(0, 10);
